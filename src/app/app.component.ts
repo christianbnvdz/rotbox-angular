@@ -30,4 +30,10 @@ export class AppComponent {
       this.router.navigate(['/login']);
     }
   }
+
+  logout() {
+    environment.deleteUserToken();
+    this.isLoggedIn = false;
+    this.router.navigate(['/login']);
+  }
 }

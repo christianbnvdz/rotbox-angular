@@ -4,7 +4,7 @@
     <ul *ngIf="isLoggedIn; else notLoggedIn">
       <li><a routerLink="/files" routerLinkActive="active-tab">Files</a></li>
       <li><a routerLink="/upload" routerLinkActive="active-tab">Upload</a></li>
-      <li><a>Logout</a></li>
+      <li><a (click)="logout()">Logout</a></li>
     </ul>
     <ng-template #notLoggedIn>
       <ul>

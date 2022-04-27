@@ -2,6 +2,8 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const baseUrl = 'http://localhost:3000';
+const tokenLocalStorageName = 'token';
+const useridLocalStorageName = 'userid';
 
 export const environment = {
   production: false,
@@ -12,8 +14,11 @@ export const environment = {
     return `${baseUrl}/users/${localStorage.getItem('userid')}/files`;
   },
   getUserToken(): string {
-    return `${localStorage.getItem('token')}`;
-  }
+    return `${localStorage.getItem(tokenLocalStorageName)}`;
+  },
+  deleteUserToken(): void {
+    localStorage.removeItem(tokenLocalStorageName);
+  },
 };
 
 /*
