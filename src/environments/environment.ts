@@ -1,9 +1,19 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+const baseUrl = 'http://localhost:3000';
 
 export const environment = {
-  production: false
+  production: false,
+  loginUrl: `${baseUrl}/users/login`,
+  registerUrl: `${baseUrl}/users/register`,
+  authenticateTokenUrl: `${baseUrl}/users/authenticate`,
+  constructGetFilesUrl(): string {
+    return `${baseUrl}/users/${localStorage.getItem('userid')}/files`;
+  },
+  getUserToken(): string {
+    return `${localStorage.getItem('token')}`;
+  }
 };
 
 /*
