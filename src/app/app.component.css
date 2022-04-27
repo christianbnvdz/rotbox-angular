@@ -1,0 +1,28 @@
+h1, nav, ul, li {
+  display: inline;
+}
+
+h1, li {
+  font-family: system-ui;
+}
+
+header {
+  background-color: #11AA86;
+  padding: 0.5em;
+}
+
+h1 {
+  margin-left: 10px;
+  color: #000;
+}
+
+ul {
+  list-style: none;
+  margin-left: 25px;
+  padding: 0px;
+}
+
+li {
+  color: #000;
+  margin-left: 10px;
+}
