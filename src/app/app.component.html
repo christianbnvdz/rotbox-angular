@@ -2,14 +2,14 @@
   <h1>Rotbox</h1>
   <nav>
     <ul *ngIf="isLoggedIn; else notLoggedIn">
-      <li><a>Files</a></li>
-      <li><a>Upload</a></li>
+      <li><a routerLink="/files" routerLinkActive="active-tab">Files</a></li>
+      <li><a routerLink="/upload" routerLinkActive="active-tab">Upload</a></li>
       <li><a>Logout</a></li>
     </ul>
     <ng-template #notLoggedIn>
       <ul>
-        <li><a>Login</a></li>
-        <li><a>Register</a></li>
+        <li><a routerLink="/login" routerLinkActive="active-tab">Login</a></li>
+        <li><a routerLink="/register" routerLinkActive="active-tab">Register</a></li>
       </ul>
     </ng-template>
   </nav>

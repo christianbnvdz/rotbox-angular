@@ -26,3 +26,12 @@ li {
   color: #000;
   margin-left: 10px;
 }
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.active-tab {
+  text-decoration: underline;
+}
