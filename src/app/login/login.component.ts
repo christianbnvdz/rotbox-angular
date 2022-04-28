@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  logInUser():void {
+  logInUser(): void {
     this.authService.logInUser(this.user).subscribe(
       (data) => {
         environment.setUserToken(data.token.substring(7));
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/files']);
       },
       (err) => {
-        this.err = err.error.msg;
+        this.err = `Error: ${err.error.msg}`;
       }
     );
   }
