@@ -10,6 +10,7 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent implements OnInit {
   user = { username: '', password: '' };
   msg = '';
+  err = '';
 
   constructor(private authService: AuthService) { }
 
@@ -20,12 +21,14 @@ export class RegisterComponent implements OnInit {
   registerUser(): void {
     this.authService.registerUser(this.user).subscribe(
       (status) => {
+        this.err = '';
         this.msg = 'Successfully Registered!';
         this.user.username = '';
         this.user.password = '';
       },
       (err) => {
-        this.msg = `Error: ${err.error.msg}`;
+        this.msg = '';
+        this.err = `Error: ${err.error.msg}`;
       }
     );
   }

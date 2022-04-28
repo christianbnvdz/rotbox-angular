@@ -21,5 +21,9 @@ div {
 }
 
 p {
+  color: #11AA86;
+}
+
+p.error {
   color: #F00;
 }
