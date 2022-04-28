@@ -18,4 +18,8 @@ export class AuthService {
   authenticateToken() {
     return this.http.get<any>(environment.authenticateTokenUrl, this.httpOptions);
   }
+
+  registerUser(user: any) {
+    return this.http.post<any>(environment.registerUrl, user);
+  }
 }
