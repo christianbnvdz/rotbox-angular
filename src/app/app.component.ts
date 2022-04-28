@@ -9,17 +9,19 @@ import { AuthService } from './auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  isLoggedIn = false;
-  
+export class AppComponent { 
   constructor(private router: Router, private authService: AuthService) {}
+
+  get isLoggedIn(): boolean {
+    return this.authService.isLoggedIn;
+  }
 
   ngOnInit() {
     if (environment.getUserToken()) {
       this.authService.authenticateToken().subscribe(
         (status) => {
           // room for improvement to check jwt status
-          if (status.msg === 'valid jwt') this.isLoggedIn = true;
+          if (status.msg === 'valid jwt') this.authService.isLoggedIn = true;
           this.router.navigate(['/files']);
         },
         (err) => {
@@ -33,7 +35,7 @@ export class AppComponent {
 
   logout() {
     environment.deleteUserToken();
-    this.isLoggedIn = false;
+    this.authService.isLoggedIn = false;
     this.router.navigate(['/login']);
   }
 }
