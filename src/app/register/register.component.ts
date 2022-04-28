@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
         this.user.password = '';
       },
       (err) => {
-        this.msg = err.error.msg;
+        this.msg = `Error: ${err.error.msg}`;
       }
     );
   }
