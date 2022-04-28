@@ -19,6 +19,12 @@ export const environment = {
   deleteUserToken(): void {
     localStorage.removeItem(tokenLocalStorageName);
   },
+  setUserToken(token: string): void {
+    localStorage.setItem(tokenLocalStorageName, token);
+  },
+  setUserId(userid: string): void {
+    localStorage.setItem(useridLocalStorageName, userid);
+  }
 };
 
 /*
