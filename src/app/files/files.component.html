@@ -1,1 +1,12 @@
-<p>files works!</p>
+<section>
+  <h2>Files</h2>
+  <p>{{msg}}</p>
+  <hr>
+  <ul>
+    <li *ngFor="let file of files">
+      <h3>{{file['name']}}</h3>
+      <button *ngIf="file['isFile']; else textContent" type="button" (click)="downloadFile()">Download</button>
+      <ng-template #textContent><p>{{file['content']}}</p></ng-template>
+    </li>
+  </ul>
+</section>
