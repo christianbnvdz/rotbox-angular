@@ -1,6 +1,6 @@
 <section>
   <h2>Upload</h2>
-  <p *ngIf="msg.length">{{msg}}</p>
+  <hr>
   <form>
     <div>
       <label for="name">Upload Name</label>
@@ -22,4 +22,5 @@
     </ng-template>
     <button (click)="uploadFile()" type="button">Upload</button>
   </form>
+  <p>{{msg}}</p>
 </section>
