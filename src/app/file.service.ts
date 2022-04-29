@@ -10,15 +10,24 @@ export class FileService {
 
   constructor(private http: HttpClient) { }
 
-  setHttpOptions() {
-    return {
+  setHttpOptions(expectBlob: boolean) {
+    let options = {
       headers: new HttpHeaders({
         Authorization: `Bearer ${environment.getUserToken()}`
-      })
+      }),
+      responseType: 'json' as 'json'
     };
+
+    if (expectBlob) options.responseType = 'blob' as 'json';
+
+    return options;
   }
 
   getFiles() {
-    return this.http.get<any>(environment.constructGetFilesUrl(), this.setHttpOptions());
+    return this.http.get<any>(environment.constructGetFilesUrl(), this.setHttpOptions(false));
+  }
+
+  downloadFile(fileid: string) {
+    return this.http.get<any>(`${environment.constructGetFilesUrl()}/${fileid}`, this.setHttpOptions(true));
   }
 }

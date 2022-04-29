@@ -5,7 +5,7 @@
   <ul>
     <li *ngFor="let file of files">
       <h3>{{file['name']}}</h3>
-      <button *ngIf="file['isFile']; else textContent" type="button" (click)="downloadFile()">Download</button>
+      <button *ngIf="file['isFile']; else textContent" type="button" (click)="downloadFile(file['_id'], file['name'])">Download</button>
       <ng-template #textContent><p>{{file['content']}}</p></ng-template>
     </li>
   </ul>

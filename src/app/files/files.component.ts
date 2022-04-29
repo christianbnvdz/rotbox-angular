@@ -20,7 +20,17 @@ export class FilesComponent implements OnInit {
     );
   }
 
-  downloadFile(): void {
+  downloadFile(fileid: string, filename: string): void {
+    this.fileService.downloadFile(fileid).subscribe(
+      (blob) => {
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
 
+        a.href = blobUrl;
+        a.download = filename;
+        a.click();
+        window.URL.revokeObjectURL(blobUrl);
+      }
+    );
   }
 }
