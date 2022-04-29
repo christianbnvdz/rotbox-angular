@@ -1,7 +1,7 @@
 <section>
   <h2>Files</h2>
-  <p>{{msg}}</p>
   <hr>
+  <p *ngIf="files && !files.length">You have not stored any files</p>
   <ul>
     <li *ngFor="let file of files">
       <h3>{{file['name']}}</h3>
