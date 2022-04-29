@@ -30,4 +30,8 @@ export class FileService {
   downloadFile(fileid: string) {
     return this.http.get<any>(`${environment.constructGetFilesUrl()}/${fileid}`, this.setHttpOptions(true));
   }
+
+  uploadFile(form: FormData) {
+    return this.http.post<any>(environment.constructGetFilesUrl(), form, this.setHttpOptions(false));
+  }
 }

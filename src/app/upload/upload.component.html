@@ -1,5 +1,6 @@
 <section>
   <h2>Upload</h2>
+  <p *ngIf="msg.length">{{msg}}</p>
   <form>
     <div>
       <label for="name">Upload Name</label>
@@ -11,7 +12,7 @@
     </div>
     <div *ngIf="file.isFile; else textInput">
       <label for="fileSelect">Choose a File</label>
-      <input [(ngModel)]="file.content" type="file" id="fileSelect" name="content" required>
+      <input (change)="onFileSelect($event)" type="file" id="fileSelect" name="content" required>
     </div>
     <ng-template #textInput>
       <div>
