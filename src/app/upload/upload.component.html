@@ -1,1 +1,24 @@
-<p>upload works!</p>
+<section>
+  <h2>Upload</h2>
+  <form>
+    <div>
+      <label for="name">Name</label>
+      <input [(ngModel)]="file.name" type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="fileType">Uploading a File?</label>
+      <input [(ngModel)]="file.isFile" (change)="clearContent()" type="checkbox" id="fileType" name="isFile" required>
+    </div>
+    <div *ngIf="file.isFile; else textInput">
+      <label for="fileSelect">Choose a File</label>
+      <input [(ngModel)]="file.content" type="file" id="fileSelect" name="content" required>
+    </div>
+    <ng-template #textInput>
+      <div>
+        <label for="textbox">Your Text</label>
+        <textarea [(ngModel)]="file.content" id="textbox" name="content" required></textarea>
+      </div>
+    </ng-template>
+    <button (click)="uploadFile()" type="button">Upload</button>
+  </form>
+</section>

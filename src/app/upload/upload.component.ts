@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+  file = { name: '', isFile: '', content: '' };
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
+  clearContent() {
+    this.file.content = '';
+  }
+
+  uploadFile() {
+
+  }
 }
